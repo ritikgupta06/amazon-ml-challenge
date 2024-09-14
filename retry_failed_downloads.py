@@ -20,7 +20,7 @@ def download_image(image_url, image_filename):
             log_file.write(f"{image_filename}\n")
         print(f"Successfully downloaded {image_filename}")
     except Exception as e:
-    
+
         current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         error_message = f"Retry failed for {image_filename} from {image_url}: {str(e)} at {current_time}\n"
         with open(error_log, 'a') as error_file:
