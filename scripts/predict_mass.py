@@ -3,15 +3,14 @@ import cv2
 import numpy as np
 import joblib
 
-# File paths
+
 images_folder = 'images'
 model_file = 'models/model.pkl'
 predictions_file = 'data/results/predictions.csv'
 
-# Load model
+
 model = joblib.load(model_file)
 
-# Function to extract features from an image
 def extract_features(image_path):
     img = cv2.imread(image_path)
     if img is None:
@@ -29,7 +28,6 @@ def extract_features(image_path):
         'std_red': std_color[2]
     }
 
-# Predict mass of new images
 predictions = []
 for filename in os.listdir(images_folder):
     if filename.endswith('.jpg'):
@@ -43,7 +41,6 @@ for filename in os.listdir(images_folder):
                 'predicted_group_id': predicted_group_id
             })
 
-# Save predictions to CSV
 df = pd.DataFrame(predictions)
 df.to_csv(predictions_file, index=False)
 print(f"Predictions saved to {predictions_file}")
