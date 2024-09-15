@@ -13,7 +13,7 @@ if not os.path.exists(images_folder):
     os.makedirs(images_folder)
 
 # CSV file path
-csv_file = 'data/your_file.csv'
+csv_file = 'data/my_file.csv'
 
 # Download images
 with open(csv_file, 'r') as file:
